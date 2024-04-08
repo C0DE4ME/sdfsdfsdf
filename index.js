@@ -8,7 +8,7 @@ const characterAI = new CharacterAI();
 // When the bot is "ready":
 client.once("ready", async () => {
     console.log(`${client.user.username} is online.`); // Log it in the console.
-    client.user.setPresence({ activities: [{ name: `Character.ai.`, type: ActivityType.Playing }], status: 'online' }) // Set a activity.
+    client.user.setPresence({ activities: [{ name: `F0rtNANTExd`, type: ActivityType.Playing }], status: 'online' }) // Set a activity.
 });
 
 client.on("messageCreate", async message => {
@@ -17,14 +17,14 @@ client.on("messageCreate", async message => {
     if (message.author.bot) return;
 
     // Makes it so the bot only runs when the conversation happens in a set discord channel.
-    if (!message.channel.id == botConfig.chatID) return // Change this in botConfig.json OR remove this line if you want it to function in all chats.
+    //if (!message.channel.id == botConfig.chatID) return // Change this in botConfig.json OR remove this line if you want it to function in all chats.
 
     // Stop the code if the bot isn't mentioned (@ or ping reply)
     if (!message.mentions.users.first()) return
     if (message.mentions.users.first().id !== client.user.id) return 
 
     // Specifify the message sent to the character.ai chat.
-    var msgText = message.content.split(" ").slice(1).join(" ");
+    var msgText = message.content.split(" ").slice(0).join(" ");
     if (!msgText) return // Prevent the code from sending an empty message to the ai.
     // Replace the 1 above with a 0 if you don't @mention the bot infront of your msgs (Reply ping / Removed the mention required)
 
